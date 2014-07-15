@@ -11,3 +11,7 @@ package "munin-node" do
   action :install
 end
 
+service "munin-node" do
+  action [:enable, :start]
+end
+
