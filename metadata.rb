@@ -1,6 +1,6 @@
 name             'munin-node'
-maintainer       ''
-maintainer_email ''
+maintainer       'Yuuki NAMIKAWA'
+maintainer_email 'rx7.fd3s.rs@gmail.com'
 license          'All rights reserved'
 description      'Installs/Configures munin-node'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))

@@ -5,5 +5,5 @@ This file is used to list changes made in each version of the munin-node cookboo
 
 0.1.0
 -----
-- [Y.Namikawa] - Initial release of munin-node
+- [2014/07/15 Y.Namikawa] - Initial release of munin-node cookbook.
 
