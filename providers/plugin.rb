@@ -4,7 +4,7 @@ end
 
 action :install do
   cookbook_file "/usr/share/munin/plugins/#{new_resource.key}" do
-    source new_resource.script_name
+    source "plugins/#{new_resource.script_name}"
     action :create
     mode "0755"
   end

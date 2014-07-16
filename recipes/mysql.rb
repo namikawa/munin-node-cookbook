@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-include_recipe "munin-node::client"
+include_recipe "munin-node::default"
 
 %w{
   perl-DBD-MySQL
