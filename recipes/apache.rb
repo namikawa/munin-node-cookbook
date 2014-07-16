@@ -9,6 +9,10 @@
 
 include_recipe "munin-node::default"
 
+package "perl-libwww-perl" do
+  action :install
+end
+
 munin_node_plugin "apache_activity" do
   script_name "apache_activity"
   action :install
