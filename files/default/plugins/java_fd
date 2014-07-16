@@ -1,0 +1,62 @@
+#!/bin/sh
+# -*- sh -*-
+
+: << =cut
+
+=head1 NAME
+
+java_fd -Plugin to monitor the number of file descriptors in JAVA on the machine
+
+=head1 CONFIGURATION
+
+No configuration
+
+=head1 AUTHOR
+
+Unknown author
+
+=head1 LICENSE
+
+Unknown license
+
+=head1 MAGICK MARKERS
+
+ #%# family=auto
+ #%# capabilities=autoconf
+
+=cut
+
+#. $MUNIN_LIBDIR/plugins/plugin.sh
+
+if [ "$1" = "autoconf" ]; then
+	if [ -r /usr/sbin/lsof ]; then
+		echo yes 
+		exit 0
+	else
+		echo "no (/usr/sbin/lsof not readable)"
+		exit 0
+	fi
+fi
+
+if [ "$1" = "config" ]; then
+
+        FDMAX=`ulimit -n`
+        FDWARNING=`echo "$FDMAX * 0.8" | bc -l`
+
+	echo 'graph_title FileDescriptors'
+	echo 'graph_args --base 1000 -l 0 '
+	echo 'graph_vlabel open files'
+	echo 'graph_category java'
+	echo 'graph_info This graph shows the number of file descriptors in JAVA.'
+	echo 'java_fd.label file descliptors in JAVA'
+        echo 'java_fd.draw LINE2'
+	echo 'java_fd.min 0'
+	echo "java_fd.max $FDMAX"
+	echo "java_fd.warning $FDWARNING"
+	echo 'java_fd.info The number of FileDescriptors in JAVA.'
+	exit 0
+fi
+
+echo -n "java_fd.value "
+/usr/sbin/lsof -u tomcat | grep -i java | wc -l
+
