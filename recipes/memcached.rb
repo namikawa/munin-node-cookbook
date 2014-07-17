@@ -26,7 +26,7 @@ end
   memcached_requests
   memcached_traffic
 }.each do |script|
-  munin_node_plugin script do
+  munin_node_plugin "#{script}_127.0.0.1_11211" do
     script_name script
     action [ :install, :enable ]
   end
