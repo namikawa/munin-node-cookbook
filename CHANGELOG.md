@@ -3,6 +3,10 @@ munin-node CHANGELOG
 
 This file is used to list changes made in each version of the munin-node cookbook.
 
+0.1.3
+-----
+- [2014/07/17 Y.Namikawa] - Support Memcached
+
 0.1.2
 -----
 - [2014/07/16 Y.Namikawa] - Support Apache HTTP Server.
