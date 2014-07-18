@@ -13,6 +13,12 @@ package "perl-XML-Simple" do
   action :install
 end
 
+template "/etc/munin/plugin-conf.d/tomcat" do
+  source "tomcat.erb"
+  mode "0644"
+  notifies :restart, "service[munin-node]"
+end
+
 %w{ 
   java_fd
   jstat_gccount

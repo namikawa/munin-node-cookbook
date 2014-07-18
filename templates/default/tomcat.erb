@@ -1,0 +1,10 @@
+[jstat*]
+user root
+env.pidfilepath <%= node["munin-node"]["jstat"]["pidfilepath"] %>
+env.javahome <%= node["munin-node"]["jstat"]["javahome"] %>
+
+[tomcat*]
+env.user <%= node["munin-node"]["tomcat"]["user"] %>
+env.password <%= node["munin-node"]["tomcat"]["password"] %>
+env.connector "<%= node["munin-node"]["tomcat"]["connector"] %>"
+
