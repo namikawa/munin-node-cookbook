@@ -10,3 +10,10 @@ munin-nodeを導入して、各ミドルウェア用のmunin pluginを配置す�
 - MySQL
 - Tomcat
 
+Requirements / Notice
+---------------------
+- RHEL/CentOS 6系にて動作確認を実施
+
+Usage
+-----
+
