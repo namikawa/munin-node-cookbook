@@ -9,10 +9,6 @@
 
 include_recipe "munin-node::default"
 
-package "perl-XML-Simple" do
-  action :install
-end
-
 template "/etc/munin/plugin-conf.d/jstat" do
   source "jstat.erb"
   mode "0644"
