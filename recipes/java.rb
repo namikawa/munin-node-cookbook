@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: munin-node
-# Recipe:: tomcat
+# Recipe:: java
 #
 # Copyright 2014, YOUR_COMPANY_NAME
 #
@@ -8,22 +8,22 @@
 #
 
 include_recipe "munin-node::default"
-include_recipe "munin-node::java"
 
 package "perl-XML-Simple" do
   action :install
 end
 
-template "/etc/munin/plugin-conf.d/tomcat" do
-  source "tomcat.erb"
+template "/etc/munin/plugin-conf.d/jstat" do
+  source "jstat.erb"
   mode "0644"
   notifies :restart, "service[munin-node]"
 end
 
 %w{ 
-  tomcat_access
-  tomcat_jvm
-  tomcat_threads
+  java_fd
+  jstat_gccount
+  jstat_gctime
+  jstat_heap
 }.each do |script|
   munin_node_plugin script do
     script_name script
