@@ -9,6 +9,10 @@
 
 include_recipe "munin-node::default"
 
+package "perl-libwww-perl" do
+  action :install
+end
+
 %w{
   nginx_combined_
   nginx_memory
