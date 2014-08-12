@@ -58,5 +58,5 @@ if [ "$1" = "config" ]; then
 fi
 
 echo -n "java_fd.value "
-/usr/sbin/lsof -u tomcat | grep -i java | wc -l
+/usr/sbin/lsof -u <%= node["munin-node"]["java"]["fd"]["user"] %> | grep -i java | wc -l
 

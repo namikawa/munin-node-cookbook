@@ -16,7 +16,6 @@ template "/etc/munin/plugin-conf.d/jstat" do
 end
 
 %w{ 
-  java_fd
   jstat_gccount
   jstat_gctime
   jstat_heap
@@ -25,5 +24,15 @@ end
     script_name script
     action [ :install, :enable ]
   end 
+end
+
+template "/usr/share/munin/plugins/java_fd" do
+  source "plugins/java_fd.erb"
+  mode "0755"
+end
+
+munin_node_plugin "java_fd" do
+  script_name "java_fd"
+  action :enable
 end
 
