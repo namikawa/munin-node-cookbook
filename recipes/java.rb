@@ -9,8 +9,8 @@
 
 include_recipe "munin-node::default"
 
-template "/etc/munin/plugin-conf.d/jstat" do
-  source "jstat.erb"
+template "/etc/munin/plugin-conf.d/java" do
+  source "java.erb"
   mode "0644"
   notifies :restart, "service[munin-node]"
 end
