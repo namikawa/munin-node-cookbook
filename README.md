@@ -9,6 +9,7 @@ munin-nodeを導入して、各ミドルウェア用のmunin pluginを配置す�
 - Java
 - Memcached
 - MySQL
+- Nginx
 - Tomcat
 
 Requirements / Notice
